@@ -24,6 +24,13 @@ module.exports = {
     // allow async-await
     'generator-star-spacing': 'off',
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    "vue/max-attributes-per-line": [2, { //設定每屬性模式
+      "singleline": 10, //當行設定屬性 最多十項屬性
+      "multiline": { //多行設定屬性 每行一項屬性
+        "max": 1,
+        "allowFirstLine": false
+      }
+    }]
   }
 }
