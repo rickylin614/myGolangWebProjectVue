@@ -2,7 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import login from '@/views/login'
-import home from '@/components/home'
+import home from '@/components/Nav'
+import test1 from '@/views/user/test1'
+import test2 from '@/views/user/test2'
 
 Vue.use(Router)
 
@@ -14,12 +16,24 @@ const routerMap = [
   },
   {
     path: '/index',
-    name: '首页',
-    component: home
+    name: '首頁',
+    component: home,
+    children: [
+      {
+        path:'/userManager',
+        name:'頁面一',
+        component:test1
+      },
+      {
+        path:'/userManager2',
+        name:'頁面二',
+        component:test2
+      }
+    ]
   },
   {
     path: '/login',
-    name: '登入',
+    name: 'login',
     component: login
   }
 ]

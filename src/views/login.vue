@@ -1,5 +1,5 @@
 <template>
-  <div class="middle">
+  <div class="container middle">
     <div class="header">
       <h1>登入頁面</h1>
     </div>

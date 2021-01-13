@@ -5,7 +5,7 @@ import Vue from 'vue'
 Vue.use(Vuex)
 
 export const actions = {
-  Post ( obj) {
+  Post(obj) {
     return new Promise((resolve, reject) => {
       post(obj.url, obj.data).then(res => {
         resolve(res)
@@ -14,7 +14,7 @@ export const actions = {
       })
     })
   },
-  Get ( url) {
+  Get(url) {
     return new Promise((resolve, reject) => {
       get(url).then(res => {
         resolve(res)
@@ -23,7 +23,7 @@ export const actions = {
       })
     })
   },
-  GetByParams ( obj) {
+  GetByParams(obj) {
     return new Promise((resolve, reject) => {
       getByParams(obj.url, obj.data).then(res => {
         resolve(res)
@@ -32,7 +32,7 @@ export const actions = {
       })
     })
   },
-  GetById ( obj) {
+  GetById(obj) {
     return new Promise((resolve, reject) => {
       getById(obj.url, obj.id).then(res => {
         resolve(res)

@@ -7,5 +7,18 @@ npm install --save element-ui
 // element module
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-
 Vue.use(ElementUI)
+
+npm install --save axios
+Vue.use(axios)
+
+dependencies 的版本範圍有很多種寫法。
+value 可以是 Git地址或者壓縮包地址。
+version 完全匹配： “1.0.0”
+>version 必須比指定version大： >1.0.0
+>=version
+<version
+<=version
+~version : 忽略中版本，自動升級小版本。
+^version: 忽略大版本，自動升級中，小版本。
+1.2.x: 忽略小版本，自動升級小版本。

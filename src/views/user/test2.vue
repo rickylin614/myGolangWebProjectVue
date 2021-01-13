@@ -1,12 +1,14 @@
 <template>
   <div>
-      test2
+    <p>test2</p>
   </div>
 </template>
 
 <script>
 export default {
-
+  created() {
+    console.log("entry test2")
+  }
 }
 </script>
 

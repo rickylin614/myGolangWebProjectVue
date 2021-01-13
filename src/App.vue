@@ -1,13 +1,7 @@
 <template>
   <div id="app">
-    <!-- <img src="./assets/logo.png"> -->
-    <!-- <div class="myHeader">
-      文字測試
-    </div> -->
-
-    <!-- <div class="myContent"> -->
+    
     <router-view/>
-    <!-- </div> -->
 
     <div class="myFooter">
       made by rickylin614
@@ -22,8 +16,13 @@ export default {
 </script>
 
 <style>
+
 .container {
   height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 0px;
+  top: 0px;
 }
 
 /* .myHeader {

@@ -3,6 +3,7 @@
     <el-container class="mainZone">
       <el-aside width="200px" style="height:100%">
         <el-menu
+          :router="true"
           class="el-menu-vertical-demo"
           background-color="#545c64"
           text-color="#fff"
@@ -11,19 +12,29 @@
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-location"/>
-              <span slot="title">导航一</span>
+              <span slot="title">標題一</span>
             </template>
-            <el-menu-item-group>
-              <template slot="title">分组一</template>
-              <el-menu-item index="1-1">选项1</el-menu-item>
-              <el-menu-item index="1-2">选项2</el-menu-item>
-            </el-menu-item-group>
+            <el-menu-item index="1-1" route="/userManager">選項一</el-menu-item>
+            <el-menu-item index="1-2" route="/userManager2">選項二</el-menu-item>
+          </el-submenu>
+          <el-submenu index="2">
+            <template slot="title">
+              <i class="el-icon-location"/>
+              <span slot="title">標題二</span>
+            </template>
+            <el-menu-item index="2-1" route="/index">選項一</el-menu-item>
+            <el-menu-item index="2-2" route="/index">選項二</el-menu-item>
           </el-submenu>
         </el-menu>
       </el-aside>
       <el-main class="mainArea">
-        <p>test</p>
-        <el-button class="mt5" @click="abc">getHeight</el-button>
+        <div v-if="getPageName !== '首頁'">
+          <el-page-header :content="getPageName" @back="goBack"/>
+          <router-view/>
+        </div>
+        <div v-if="getPageName === '首頁'">
+          <h1>歡迎來到訂便當系統首頁</h1>
+        </div>
       </el-main>
     </el-container>
   </div>
@@ -33,19 +44,28 @@
 export default {
   data () {
     return {
-      items: {
-
-      }
+      pageName:''
     }
+  },
+  computed:{
+    getPageName() {
+      return this.$route.name
+    }
+  },
+  created() {
+    console.log(this.$route)
   },
   methods: {
     handleOpen () {
-      // do nothing
+
     },
     handleClose () {
       // do nothing
     },
-    abc () {
+    goBack() {
+      this.$router.push("/index")
+    },
+    showWindowInfo () {
       var iw = window.innerWidth
       var ow = window.outerWidth
       var ih = window.innerHeight
