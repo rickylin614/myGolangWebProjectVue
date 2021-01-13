@@ -7,13 +7,16 @@ module.exports = {
   },
   env: {
     browser: true,
+    node: true,
+    es6: true,
   },
   extends: [
     // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
     // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-    'plugin:vue/essential', 
+    'plugin:vue/recommended',
     // https://github.com/standard/standard/blob/master/docs/RULES-en.md
-    'standard'
+    // 'standard'
+    'eslint:recommended' //使用eslint推薦規範
   ],
   // required to lint *.vue files
   plugins: [
@@ -25,6 +28,7 @@ module.exports = {
     'generator-star-spacing': 'off',
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    "no-console": "off", // 開發中 允許console
     "vue/max-attributes-per-line": [2, { //設定每屬性模式
       "singleline": 10, //當行設定屬性 最多十項屬性
       "multiline": { //多行設定屬性 每行一項屬性

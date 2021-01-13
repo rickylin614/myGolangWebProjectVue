@@ -4,7 +4,7 @@ import axios from 'axios'
 // 初始化axios
 const service = axios.create({
   baseURL: '/', // api的base_url
-  timeout: 1000 * 60 // 请求超时时间
+  timeout: 1000 * 30 // 超時時間設定30秒
 })
 
 // request interceptors
