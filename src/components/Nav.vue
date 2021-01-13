@@ -63,7 +63,7 @@ export default {
       // do nothing
     },
     goBack() {
-      this.$router.push("/index")
+      this.$router.push("/")
     },
     showWindowInfo () {
       var iw = window.innerWidth

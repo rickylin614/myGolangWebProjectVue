@@ -10,12 +10,12 @@ Vue.use(Router)
 
 const routerMap = [
   {
-    path: '/',
+    path: '/HelloWorld',
     name: 'HelloWorld',
     component: HelloWorld
   },
   {
-    path: '/index',
+    path: '/',
     name: '首頁',
     component: home,
     children: [
@@ -33,8 +33,12 @@ const routerMap = [
   },
   {
     path: '/login',
-    name: 'login',
+    name: '登入',
     component: login
+  },
+  {
+    path: '*',
+    redirect: '/'
   }
 ]
 
@@ -45,17 +49,9 @@ const newRouter = new Router({
 })
 
 newRouter.beforeEach((to, from, next) => {
-  console.log('abccccc')
+  // console.log('abccccc')
   next()
 })
+
 export default newRouter
 
-// export default new Router({
-//   routes: [
-//     {
-//       path: '/',
-//       name: 'HelloWorld',
-//       component: HelloWorld
-//     }
-//   ]
-// })
