@@ -6,8 +6,7 @@ import { Message } from 'element-ui'
 Vue.use(Vuex)
 
 export const actions = {
-  Post({commit},obj) {
-    console.log(commit)
+  Post(obj) {
     return new Promise((resolve, reject) => {
       post(obj.url, obj.data).then(res => {
         resolve(res)
@@ -17,7 +16,7 @@ export const actions = {
       })
     })
   },
-  Get({commit},url) {
+  Get(url) {
     return new Promise((resolve, reject) => {
       get(url).then(res => {
         resolve(res)
