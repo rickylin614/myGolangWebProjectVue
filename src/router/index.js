@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import login from '@/views/login'
+import register from '@/views/register'
 import home from '@/components/Nav'
 import test1 from '@/views/user/test1'
 import test2 from '@/views/user/test2'
@@ -37,8 +38,13 @@ const routerMap = [
     component: login
   },
   {
+    path: '/register',
+    name: '註冊',
+    component:  register
+  },
+  {
     path: '*',
-    redirect: '/'
+    redirect: '/login'
   }
 ]
 

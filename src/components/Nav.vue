@@ -9,6 +9,7 @@
           text-color="#fff"
           @open="handleOpen"
           @close="handleClose">
+          <el-button size="mini" class="mt5" type="info" @click="logout">登出</el-button>
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-location"/>
@@ -64,6 +65,16 @@ export default {
     },
     goBack() {
       this.$router.push("/")
+    },
+    logout() {
+      var url = '/user/logout'
+      this.$store.dispatch('Get', url).then(res => {
+        this.$message({
+          type: 'info',
+          message: res.msg
+        })
+        this.$router.push("/login")
+      })
     },
     showWindowInfo () {
       var iw = window.innerWidth
