@@ -33,6 +33,7 @@ export default {
         }
       }
       this.$store.dispatch('Post', postData).then(() => {
+        localStorage.setItem("user",this.account)
         this.$router.push("/")
       })
     }

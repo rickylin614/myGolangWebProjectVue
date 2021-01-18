@@ -6,7 +6,7 @@ import { Message } from 'element-ui'
 Vue.use(Vuex)
 
 export const actions = {
-  Post(obj) {
+  Post ({commit}, obj) {
     return new Promise((resolve, reject) => {
       post(obj.url, obj.data).then(res => {
         resolve(res)
@@ -16,7 +16,7 @@ export const actions = {
       })
     })
   },
-  Get(url) {
+  Get ({commit}, url) {
     return new Promise((resolve, reject) => {
       get(url).then(res => {
         resolve(res)
@@ -26,7 +26,7 @@ export const actions = {
       })
     })
   },
-  GetByParams(obj) {
+  GetByParams ({commit}, obj) {
     return new Promise((resolve, reject) => {
       getByParams(obj.url, obj.data).then(res => {
         resolve(res)
@@ -36,7 +36,7 @@ export const actions = {
       })
     })
   },
-  GetById(obj) {
+  GetById ({commit}, obj) {
     return new Promise((resolve, reject) => {
       getById(obj.url, obj.id).then(res => {
         resolve(res)

@@ -29,6 +29,10 @@ module.exports = {
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     "no-console": "off", // 開發中 允許console
+    "no-unused-vars": [2, {
+      'vars': 'all',
+      'args': 'none'
+    }],
     "vue/max-attributes-per-line": [2, { //設定每屬性模式
       "singleline": 10, //當行設定屬性 最多十項屬性
       "multiline": { //多行設定屬性 每行一項屬性

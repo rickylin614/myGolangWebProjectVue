@@ -1,6 +1,6 @@
 
 import axios from 'axios'
-import {Message} from 'element-ui'
+import {MessageBox} from 'element-ui'
 
 // 初始化axios
 const service = axios.create({
@@ -29,17 +29,14 @@ service.interceptors.response.use(
   response => {
     console.log(response)
     if (response.data.code == "notLogin") {
-      Message.info("請登入")
-      document.location.href = '/login'
+      // Message.info("請登入")
+      MessageBox.alert('尚未登入或登入資訊過期，請重新登入。','溫馨提示', {
+        confirmButtonText: '登入',
+        type: 'warning'
+      }).then(()=> {
+        document.location.href = '/login' //自動跳轉登入頁
+      })
       return response.data
-      // return MessageBox.alert(
-      //   "請登入",
-      //   "溫馨提示", {
-      //     confirmButtonText: "登入",
-      //     type: 'warning',
-      //     showClose: false
-      //   }
-      // )
     }
     if (response.data && response.data.code === 'error') {
       return Promise.reject(response.data)

@@ -13,18 +13,18 @@
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-location"/>
-              <span slot="title">標題一</span>
+              <span slot="title">用戶管理</span>
             </template>
-            <el-menu-item index="1-1" route="/userManager">選項一</el-menu-item>
-            <el-menu-item index="1-2" route="/userManager2">選項二</el-menu-item>
+            <el-menu-item index="1-1" route="/userManager">用戶名單</el-menu-item>
+            <el-menu-item index="1-2" route="/userManager2">登入紀錄</el-menu-item>
           </el-submenu>
           <el-submenu index="2">
             <template slot="title">
               <i class="el-icon-location"/>
               <span slot="title">標題二</span>
             </template>
-            <el-menu-item index="2-1" route="/index">選項一</el-menu-item>
-            <el-menu-item index="2-2" route="/index">選項二</el-menu-item>
+            <el-menu-item index="2-1" route="/">選項一</el-menu-item>
+            <el-menu-item index="2-2" route="/">選項二</el-menu-item>
           </el-submenu>
         </el-menu>
       </el-aside>
@@ -94,6 +94,9 @@ export default {
 <style>
   .mainZone {
     height: 100%;
+  }
+  .mt5 {
+    margin-top: 5px;
   }
   .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 198px;

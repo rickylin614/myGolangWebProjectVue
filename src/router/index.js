@@ -4,7 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import login from '@/views/login'
 import register from '@/views/register'
 import home from '@/components/Nav'
-import test1 from '@/views/user/test1'
+import userManage from '@/views/user/userManage'
 import test2 from '@/views/user/test2'
 
 Vue.use(Router)
@@ -23,7 +23,7 @@ const routerMap = [
       {
         path:'/userManager',
         name:'頁面一',
-        component:test1
+        component:userManage
       },
       {
         path:'/userManager2',

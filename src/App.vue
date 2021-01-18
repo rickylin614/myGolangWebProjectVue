@@ -25,19 +25,9 @@ export default {
   top: 0px;
 }
 
-/* .myHeader {
-  background: lightblue;
-  position: fixed;
-  top:0;
-  left:0;
-  width: 100%;
-} */
-
-/* .myContent {
-  margin-top: -39px;
-  margin-left: -10px;
-  height: 100%;
-} */
+.button {
+    margin: 5px;
+  }
 
 .myFooter {
   background: lightblue;

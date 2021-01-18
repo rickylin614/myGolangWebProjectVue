@@ -35,7 +35,7 @@ export default {
           type: 'info',
           message: res.msg
         })
-        this.$router.push("/")
+        this.$router.push("/login")
       })
     },
     back() {
