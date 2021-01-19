@@ -27,7 +27,7 @@ service.interceptors.request.use(
 // response interceptors
 service.interceptors.response.use(
   response => {
-    console.log(response)
+    // console.log(response)
     if (response.data.code == "notLogin") {
       // Message.info("請登入")
       MessageBox.alert('尚未登入或登入資訊過期，請重新登入。','溫馨提示', {
@@ -47,7 +47,6 @@ service.interceptors.response.use(
   error => {
     // Do something with response error
     console.log(error) // for debug
-    console.log(error.code)
     
     var data = {
       "msg" : "請求服務器失敗，請確認連線是否異常",

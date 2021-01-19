@@ -22,7 +22,7 @@ const routerMap = [
     children: [
       {
         path:'/userManager',
-        name:'頁面一',
+        name:'用戶查詢',
         component:userManage
       },
       {
@@ -55,7 +55,6 @@ const newRouter = new Router({
 })
 
 newRouter.beforeEach((to, from, next) => {
-  // console.log('abccccc')
   next()
 })
 

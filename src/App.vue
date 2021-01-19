@@ -50,10 +50,10 @@ html, body, #app {
 }
 
 body {
-    background: -webkit-linear-gradient(lightblue, white);
-    background: -o-linear-gradient(lightblue, white);
-    background: -moz-linear-gradient(lightblue, white);
-    background: linear-gradient(lightblue, white);
+    /* background: -webkit-linear-gradient(lightblue, white); */
+    /* background: -o-linear-gradient(lightblue, white); */
+    /* background: -moz-linear-gradient(lightblue, white); */
+    /* background: linear-gradient(lightblue, white); */
     margin: 0px;
 }
 
