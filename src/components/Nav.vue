@@ -97,6 +97,9 @@ export default {
   .mt5 {
     margin-top: 5px;
   }
+  .mb5 {
+    margin-bottom: 5px;
+  }
   .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 198px;
     min-height: 100% ;

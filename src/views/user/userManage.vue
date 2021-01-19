@@ -2,6 +2,17 @@
   <div class="userManage">
     <!-- <el-button @click="apicheck">測試扭</el-button>  -->
     <el-button class="button" @click="search">搜尋</el-button>
+    <div class="block">
+      <el-pagination
+        :current-page="currentPage"
+        :page-sizes="[20, 50, 200, 500]"
+        :page-size="pageSize"
+        :total="totalCount"
+        layout="total, sizes, prev, pager, next, jumper"
+        class="mt5 mb5"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"/>
+    </div>
     <el-table
       :data="userData"
       class="trans"
@@ -28,16 +39,6 @@
         width="200"
         align="center"/>
     </el-table>
-    <div class="block">
-      <el-pagination
-        :current-page="currentPage"
-        :page-sizes="[100, 200, 300, 400]"
-        :page-size="pageSize"
-        :total="0"
-        layout="total, sizes, prev, pager, next, jumper"
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"/>
-    </div>
   </div>
 </template>
 
@@ -47,7 +48,7 @@ export default {
     return {
       userData : [],
       currentPage : 0,
-      pageSize : 100,
+      pageSize : 20,
       totalCount : 0,
     }
   },
@@ -64,12 +65,13 @@ export default {
       var data = {
         url : url,
         data : {
-          "pageNo" : 1,
-          "pageSize" : 5
+          "pageNo" : this.currentPage,
+          "pageSize" : this.pageSize
         }
       }
       this.$store.dispatch("Post",data).then(res => {
         this.userData = res.data
+        this.totalCount = res.dataCount
       })
     },
     handleSizeChange(val) {
@@ -89,6 +91,6 @@ export default {
     text-align: left;
   }
   .trans {
-  background: transparent;
+    background: transparent;
   }
 </style>
