@@ -5,7 +5,8 @@ import login from '@/views/login'
 import register from '@/views/register'
 import home from '@/components/Nav'
 import userManage from '@/views/user/userManage'
-import test2 from '@/views/user/test2'
+import loginRecord from '@/views/user/loginRecord'
+// import test2 from '@/views/user/test2'
 
 Vue.use(Router)
 
@@ -26,9 +27,9 @@ const routerMap = [
         component:userManage
       },
       {
-        path:'/userManager2',
-        name:'頁面二',
-        component:test2
+        path:'/loginRecord',
+        name:'登入記錄',
+        component:loginRecord
       }
     ]
   },
