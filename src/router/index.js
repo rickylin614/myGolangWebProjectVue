@@ -4,9 +4,8 @@ import HelloWorld from '@/components/HelloWorld'
 import login from '@/views/login'
 import register from '@/views/register'
 import home from '@/components/Nav'
-import userManage from '@/views/user/userManage'
-import loginRecord from '@/views/user/loginRecord'
-// import test2 from '@/views/user/test2'
+import User from './user'
+import chatroom from '@/views/chatroom'
 
 Vue.use(Router)
 
@@ -21,15 +20,11 @@ const routerMap = [
     name: '首頁',
     component: home,
     children: [
+      User.router,
       {
-        path:'/userManager',
-        name:'用戶查詢',
-        component:userManage
-      },
-      {
-        path:'/loginRecord',
-        name:'登入記錄',
-        component:loginRecord
+        path: '/chatroom',
+        name: '聊天室',
+        component: chatroom
       }
     ]
   },

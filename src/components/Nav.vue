@@ -7,9 +7,11 @@
           class="el-menu-vertical-demo"
           background-color="#545c64"
           text-color="#fff"
+          style="text-align:left;"
           @open="handleOpen"
           @close="handleClose">
-          <el-button size="mini" class="mt5" type="info" @click="logout">登出</el-button>
+          <el-button size="mini" class="m5" type="info" @click="logout">登出</el-button>
+          <el-button size="mini" class="m5" type="primary" @click="goChatroom">即時通訊</el-button>
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-location"/>
@@ -75,6 +77,9 @@ export default {
         this.$router.push("/login")
       })
     },
+    goChatroom() {
+      this.$router.push("/chatroom")
+    },
     showWindowInfo () {
       var iw = window.innerWidth
       var ow = window.outerWidth
@@ -99,6 +104,12 @@ export default {
   }
   .mb5 {
     margin-bottom: 5px;
+  }
+  .m5 {
+    margin: 5px;
+  }
+  .m10 {
+    margin: 10px;
   }
   .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 198px;
