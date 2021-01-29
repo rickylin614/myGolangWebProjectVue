@@ -45,11 +45,6 @@ const routerMap = [
         path: '/updateOrder',
         name: '修改餐廳',
         component:  updateOrder
-      },
-      {
-        path:'/userManager2',
-        name:'頁面二',
-        component:test2
       }
     ]
   },
