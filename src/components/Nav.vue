@@ -23,9 +23,9 @@
           <el-submenu index="2">
             <template slot="title">
               <i class="el-icon-location"/>
-              <span slot="title">標題二</span>
+              <span slot="title">店家管理</span>
             </template>
-            <el-menu-item index="2-1" route="/">選項一</el-menu-item>
+            <el-menu-item index="2-1" route="/orderManage">店家訂單</el-menu-item>
             <el-menu-item index="2-2" route="/">選項二</el-menu-item>
           </el-submenu>
         </el-menu>
@@ -38,6 +38,7 @@
         <div v-if="getPageName === '首頁'">
           <h1>歡迎來到訂便當系統首頁</h1>
         </div>
+        <div class="topBtn placeholder_666"/>
       </el-main>
     </el-container>
   </div>
