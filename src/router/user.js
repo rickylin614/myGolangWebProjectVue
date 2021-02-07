@@ -12,7 +12,7 @@ export default {
         children: [
           {
             path:'/userManager',
-            name:'用戶查詢',
+            name:'用戶查詢',  
             component:userManage
           },
           {

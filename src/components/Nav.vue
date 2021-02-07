@@ -103,6 +103,9 @@ export default {
   .mt5 {
     margin-top: 5px;
   }
+  .mt10 {
+    margin-top: 10px;
+  }
   .mb5 {
     margin-bottom: 5px;
   }

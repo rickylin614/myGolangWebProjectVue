@@ -45,6 +45,16 @@ export const actions = {
         reject(err)
       })
     })
+  },
+  PingCheck({commit}) {
+    return new Promise((resolve, reject) => {
+      get("/linkCheck").then(res => {
+        resolve(res)
+      }).catch(err => {
+        Message.error(err.msg)
+        reject(err)
+      })
+    })
   }
 }
 
