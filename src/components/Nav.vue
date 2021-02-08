@@ -19,6 +19,7 @@
             </template>
             <el-menu-item index="1-1" route="/userManager">用戶名單</el-menu-item>
             <el-menu-item index="1-2" route="/loginRecord">登入紀錄</el-menu-item>
+            <el-menu-item index="1-3" route="/onlineMember">在線會員</el-menu-item>
           </el-submenu>
           <el-submenu index="2">
             <template slot="title">
@@ -33,7 +34,7 @@
       <el-main class="mainArea">
         <div v-if="getPageName !== '首頁'">
           <el-page-header :content="getPageName" @back="goBack"/>
-          <router-view/>
+          <router-view />
         </div>
         <div v-if="getPageName === '首頁'">
           <h1>歡迎來到訂便當系統首頁</h1>

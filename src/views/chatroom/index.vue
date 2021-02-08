@@ -8,10 +8,7 @@
       <div style="height: 450px; overflow: auto">
         <div v-for="(item, index) in msgArr" :key="index">
           <div :class="checkIsMe(item.owner)">
-            <div
-              :style="autoWidth(item.owner, item.msg)"
-              class="myDialogText mt5"
-            >
+            <div :style="autoWidth(item.owner, item.msg)" class="myDialogText mt5" >
               {{ item.owner }} : <br>
               {{ item.msg }}
             </div>

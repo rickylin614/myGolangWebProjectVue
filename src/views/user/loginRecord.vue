@@ -22,7 +22,7 @@
         type="index" 
         label="序號" 
         align="center"
-        width="80"/>
+        width="60"/>
       <el-table-column 
         label="用戶" 
         align="center"
@@ -31,17 +31,18 @@
       <el-table-column 
         label="登入時間" 
         align="center"
-        prop="LoginTime"/>
+        prop="LoginTime"
+        width="170px"/>
       <el-table-column 
         label="IP" 
         align="center"
         prop="Ip"
-        width="150px"/>
+        width="120px"/>
       <el-table-column 
         label="動作" 
         align="center"
         prop="LoginState"
-        width="150px"/>
+        width="100px"/>
   </el-table></div>
 </template>
 
