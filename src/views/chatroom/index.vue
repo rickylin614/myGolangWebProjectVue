@@ -3,6 +3,7 @@
     <el-tabs v-model="nowRoom" type="card" class="mt10" @tab-click="handleClick">
       <el-tab-pane :disabled="nowRoom == 'room1'" label="一號房" name="room1"/>
       <el-tab-pane :disabled="nowRoom == 'room2'" label="二號房" name="room2"/>
+      <el-tab-pane :disabled="nowRoom == 'room3'" label="三號房" name="room3"/>
     </el-tabs>
     <div class="msgFrame">
       <div style="height: 450px; overflow: auto">
@@ -29,40 +30,54 @@ export default {
   data() {
     return {
       msgArr: [],
-      socket: null,
+      msgMap: {},
+      socketMap: {},
       newMsg: "",
       nowRoom: "room1",
     };
   },
+  computed: {
+    getMsg() {
+      return this.msgMap[this.nowRoom]
+    }
+  },
   created() {
     this.$store.dispatch("PingCheck")
     this.connect()
+    this.initMsgArr()
+    this.msgArr = this.msgMap[this.nowRoom]
   },
   mounted() {},
   methods: {
     connect() {
+      var socket = this.socketMap[this.nowRoom]
       if (socket && socket.readyState != 3) {
-        socket.close;
+        return
       }
-      this.initMsgArr()
       var url = "ws://localhost:8081/go/_ajax/chat?chat=" + this.nowRoom;
-      var socket = new WebSocket(url);
+      socket = new WebSocket(url);
       socket.onmessage = this.receiveMsg;
-      this.socket = socket;
+      this.socketMap[this.nowRoom] = socket
     },
     receiveMsg(e) {
       e.data.text().then((text) => {
         var jsonStr = JSON.parse(text);
         var msg = {
-          owner: jsonStr.n ? jsonStr.n : "unknown",
-          msg: jsonStr.m ? jsonStr.m : "unknown",
+          owner: jsonStr.n ? jsonStr.n : "",
+          msg: jsonStr.m ? jsonStr.m : "",
         };
-        this.msgArr.push(msg);
+        var room = jsonStr.r ? jsonStr.r : "room1"
+        this.msgMap[room].push(msg);
+        if (this.nowRoom === room) {
+          this.msgArr = this.msgMap[room]
+        }
       });
     },
     sendMsg() {
-      if (this.socket && this.socket.readyState == 1) {
-        this.socket.send(this.newMsg);
+      var socket = this.socketMap[this.nowRoom]
+      if (socket && socket.readyState == 1) {
+        socket.send(this.newMsg);
+        this.newMsg = ""
       } else {
         this.$message({
           type: "warning",
@@ -71,11 +86,15 @@ export default {
       }
     },
     initMsgArr() {
-        this.msgArr = []
-        this.msgArr.push({ owner: "系統", msg: "歡迎來到聊天室" });
+        this.msgMap[this.nowRoom] = []
+        this.msgMap[this.nowRoom].push({ owner: "系統", msg: "歡迎來到聊天室" });
     },
     handleClick() {
-        this.connect()
+      if (this.msgMap[this.nowRoom] == undefined) {
+        this.initMsgArr()
+      }
+      this.connect()
+      this.msgArr = this.msgMap[this.nowRoom]
     },
     checkIsMe(owner) {
       if (owner && owner == localStorage.getItem("user")) {
