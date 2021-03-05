@@ -19,7 +19,7 @@
       <div class="mt5" style="display: flex">
         <el-input v-model="newMsg" class="m5" type="text" />
         <el-button class="m5" @click="sendMsg">發送</el-button>
-        <el-button class="m5" @click="connect">重新連接</el-button>
+        <!-- <el-button class="m5" @click="connect">重新連接</el-button> -->
       </div>
     </div>
   </div>
@@ -57,7 +57,27 @@ export default {
       var url = "ws://localhost:8081/go/_ajax/chat?chat=" + this.nowRoom;
       socket = new WebSocket(url);
       socket.onmessage = this.receiveMsg;
+      socket.onclose = this.reconnect
       this.socketMap[this.nowRoom] = socket
+    },
+    reconnect(e) {
+      var _this = this
+      var intervalId = setInterval(function(){
+        console.log('try reconnect',e)
+        var url = e.currentTarget.url
+        var socket = new WebSocket(url);
+        setTimeout(() => {
+          console.log(socket)
+          if (socket && (socket.readyState == 1)) {
+            console.log('reconnected!')
+            socket.onmessage = _this.receiveMsg
+            socket.onclose = _this.reconnect
+            socket.send(localStorage.getItem("user") + "已重新連接")
+            _this.socketMap[_this.nowRoom] = socket
+            clearInterval(intervalId)
+          }
+        },3000)
+      },5000)
     },
     receiveMsg(e) {
       e.data.text().then((text) => {
